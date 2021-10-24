@@ -1,4 +1,5 @@
 // デジタル時計
+import { compose } from './compose.mjs';
 
 const onSecond = () => 1000;
 const getCurrentTime = () => new Date();
@@ -28,9 +29,38 @@ const formatClock = format => time =>
   format.replace('hh', time.hours).
     replace('mm', time.minutes).
     replace('ss', time.seconds).
-    replace('ampm', time.ampm);
+    replace('tt', time.ampm);
 
 const prependZero = key => clockTime => ({
   ...clockTime,
   [key]: clockTime[key] < 10 ? '0' + clockTime[key] : '' + clockTime[key],
 });
+
+const convertToCivilianTime = clockTime =>
+  compose(
+    appendAMPM,
+    civilianHours,
+  )(clockTime);
+
+const doubleDigits = civilianTime =>
+  compose(
+    prependZero('hours'),
+    prependZero('minutes'),
+    prependZero('seconds'),
+  )(civilianTime);
+
+const startTicking = () =>
+  setInterval(
+    compose(
+      clear,
+      getCurrentTime,
+      serializeClockTime,
+      convertToCivilianTime,
+      doubleDigits,
+      formatClock('hh:mm:ss tt'),
+      display(log),
+    ),
+    onSecond(),
+  );
+
+startTicking();
