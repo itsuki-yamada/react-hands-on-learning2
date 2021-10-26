@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		  name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>React Samples</title>
+</head>
+<body>
+<!--描画のroot-->
+<div id="root"></div>
+
+<!-- React,ReactDOM の開発版をCDNから読み込み -->
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+  const list = React.createElement('ul', null,
+    React.createElement('li', null, '2 lb salmon'),
+    React.createElement('li', null, '5 sprigs fresh rosemary'),
+    React.createElement('li', null, '2 tablespoons olive oil'),
+    React.createElement('li', null, '2 small lemons'),
+    React.createElement('li', null, '1 teaspoon kosher salt'),
+    React.createElement('li', null, '4 clovers of chopped garlic'),
+  );
+
+  console.log(list);
+  ReactDOM.render(list, document.getElementById('root'));
+</script>
+</body>
+</html>
