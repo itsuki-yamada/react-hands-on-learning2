@@ -4,4 +4,24 @@
 
 ## メモ書き
 
+```
+recipes-app % tree -I node_modules
+.
+├── README.md
+├── data
+│    └── recipes.json
+├── package-lock.json
+├── package.json
+└── src
+    ├── components
+    │    ├── Ingredient.js
+    │    ├── IngredientsList.js
+    │    ├── Instructions.js
+    │    ├── Menu.css
+    │    ├── Menu.js
+    │    └── Recipe.js
+    └── index.js
 
+3 directories, 11 files
+
+```
