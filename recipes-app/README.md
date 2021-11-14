@@ -28,6 +28,11 @@ recipes-app % tree -I node_modules
 
 ## ライブラリ
 
-- react
-- react-dom
-- serve
+```
+recipes-app
+├── react-dom@17.0.2
+├── react@17.0.2
+├── serve@13.0.2
+├── webpack-cli@4.9.1
+└── webpack@5.64.0
+```
