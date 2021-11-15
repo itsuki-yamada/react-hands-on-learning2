@@ -1,2 +1,3 @@
 .idea/*
-/recipes-app/node_modules/
+/chapter5/recipes-app/node_modules/
+dist/*/*.js
