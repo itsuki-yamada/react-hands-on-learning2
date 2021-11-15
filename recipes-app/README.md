@@ -30,6 +30,10 @@ recipes-app % tree -I node_modules
 
 ```
 recipes-app
+├── @babel/core@7.16.0
+├── @babel/preset-env@7.16.0
+├── @babel/preset-react@7.16.0
+├── babel-loader@8.2.3
 ├── react-dom@17.0.2
 ├── react@17.0.2
 ├── serve@13.0.2
