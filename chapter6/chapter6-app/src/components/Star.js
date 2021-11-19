@@ -1,9 +1,9 @@
 import React from 'react';
 import {FaStar} from 'react-icons/all';
 
-const Star = ({selected = false}) => {
+const Star = ({selected = false, onSelect = f => f}) => {
   return (
-      <FaStar color={selected ? 'red' : 'grey'}/>
+      <FaStar color={selected ? 'red' : 'grey'} onClick={onSelect}/>
   );
 };
 
