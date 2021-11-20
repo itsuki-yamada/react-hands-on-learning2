@@ -2,12 +2,25 @@ import {useState} from 'react';
 import colorData from './color-data.json';
 import ColorList from './components/ColorList';
 import AddColorForm from './components/AddColorForm';
+import {v4 as uuid} from 'uuid';
 
 function App() {
   const [colors, setColors] = useState(colorData);
   return (
       <>
-        <AddColorForm/>
+        <AddColorForm onNewColor={(title, hexColor) => {
+          setColors(prev => ([
+            ...prev,
+            {
+              id: uuid(),
+              title,
+              color: hexColor,
+              rating: 0,
+            },
+
+          ]));
+        }}
+        />
         <hr/>
         <ColorList
             colors={colors}
