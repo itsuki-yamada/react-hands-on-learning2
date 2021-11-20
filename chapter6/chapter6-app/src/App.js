@@ -17,7 +17,6 @@ function App() {
               color: hexColor,
               rating: 0,
             },
-
           ]));
         }}
         />
