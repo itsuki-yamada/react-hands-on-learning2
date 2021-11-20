@@ -3,6 +3,7 @@ import Star from './Star';
 export default function StarRating({
   totalStars = 5,
   selectedStars = 0,
+  onRate = f => f,
   style = {},
   ...props
 }) {
@@ -12,6 +13,7 @@ export default function StarRating({
                 <Star
                     key={i}
                     selected={selectedStars > i}
+                    onSelect={() => onRate(i + 1)}
                 />
             ),
         )}
