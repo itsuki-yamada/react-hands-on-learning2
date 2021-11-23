@@ -4,9 +4,10 @@ import {useEffect} from 'react';
 
 function App() {
   useAnyKeyToRender();
+  const word = 'word';
   useEffect(() => {
     console.log('fresh render');
-  });
+  }, [word]);
   return (
       <>
         <Checkbox/>
