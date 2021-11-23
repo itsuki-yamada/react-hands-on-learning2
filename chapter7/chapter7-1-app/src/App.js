@@ -1,17 +1,13 @@
 import Checkbox from './components/Checkbox';
-import {useAnyKeyToRender} from './hooks/useAnyKeyToRender';
-import {useEffect} from 'react';
-
-const word = ['word', 'coffee'];
+import {WordCount} from './components/WordCount';
 
 function App() {
-  useAnyKeyToRender();
-  useEffect(() => {
-    console.log('fresh render');
-  }, [word]);
   return (
       <>
         <Checkbox/>
+        <WordCount>
+          You are not going to believe this but...
+        </WordCount>
       </>
   );
 }
