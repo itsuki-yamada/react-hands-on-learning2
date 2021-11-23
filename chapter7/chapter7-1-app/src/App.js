@@ -4,7 +4,7 @@ import {useEffect} from 'react';
 
 function App() {
   useAnyKeyToRender();
-  const word = 'word';
+  const word = ['word', 'coffee'];
   useEffect(() => {
     console.log('fresh render');
   }, [word]);
