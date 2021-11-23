@@ -4,6 +4,7 @@ const Checkbox = () => {
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     alert(`checked: ${checked.toString()}`);
+    return () => alert(`Bye bye`);
   }, [checked]);
   return (
       <>
