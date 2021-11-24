@@ -1,6 +1,6 @@
 import faker from 'faker';
 import React from 'react';
-import List from './components/List';
+import {FixedSizeList} from 'react-window';
 
 const bigList = [...Array(5000)].map(() => ({
   name: faker.name.findName(),
@@ -9,13 +9,25 @@ const bigList = [...Array(5000)].map(() => ({
 }));
 
 const App = () => {
-  const renderItem = item => (
-      <div style={{display: 'flex'}}>
-        <img src={item.avatar} alt={item.name} width={50}/>
-        <p>{item.name} - {item.email}</p>
+  const renderRow = ({index, style}) => (
+      <div style={{...style, ...{display: 'flex'}}}>
+        <img
+            src={bigList[index].avatar}
+            alt={bigList[index].name}
+            width={50}
+        />
+        <p>{bigList[index].name} - {bigList[index].email}</p>
       </div>
   );
-  return <List data={bigList} renderItem={renderItem}/>;
+  return (
+      <FixedSizeList
+          height={window.innerHeight}
+          width={window.innerWidth}
+          itemCount={bigList.length}
+          itemSize={50}
+      >
+        {renderRow}
+      </FixedSizeList>);
 };
 
 export default App;
