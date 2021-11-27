@@ -10,13 +10,17 @@ function App() {
   return (
       <>
         <SearchForm value={login} onSearch={setLogin}/>
-        <GitHubUser login={login}/>
-        <UserRepositories
-            login={login}
-            selectedRepo={repo}
-            onSelect={setRepo}
-        />
-        <RepositoryReadme login={login} repo={repo}/>
+        {login && <GitHubUser login={login}/>}
+        {login && (
+            <UserRepositories
+                login={login}
+                selectedRepo={repo}
+                onSelect={setRepo}
+            />
+        )}
+        {login && repo && (
+            <RepositoryReadme login={login} repo={repo}/>
+        )}
       </>
   );
 }
