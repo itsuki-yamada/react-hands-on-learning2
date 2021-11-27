@@ -7,9 +7,16 @@ import UserRepositories from './components/UserRepositories';
 function App() {
   const [login, setLogin] = useState('moonhighway');
   const [repo, setRepo] = useState('learning-react');
+
+  const handleSearch = login => {
+    if (login) return setLogin(login);
+    setLogin('');
+    setRepo('');
+  };
+
   return (
       <>
-        <SearchForm value={login} onSearch={setLogin}/>
+        <SearchForm value={login} onSearch={handleSearch}/>
         {login && <GitHubUser login={login}/>}
         {login && (
             <UserRepositories
