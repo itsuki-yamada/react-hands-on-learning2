@@ -1,12 +1,14 @@
 import React from 'react';
-import useInput from '../hooks/useInput';
+import {useInput} from './hooks';
 
 export default function SearchForm({value, onSearch}) {
-  const [searchProps] = useInput({initialValue: value});
-  const submit = (e) => {
+  const [searchProps] = useInput(value);
+
+  const submit = e => {
     e.preventDefault();
     onSearch(searchProps.value);
   };
+
   return (
       <form onSubmit={submit}>
         <input
@@ -18,4 +20,4 @@ export default function SearchForm({value, onSearch}) {
         <button>Search</button>
       </form>
   );
-};
+}
