@@ -6,26 +6,23 @@ const Callout = ({children}) => (
     <div className="callout">{children}</div>
 );
 
-const ErrorScreen = ({error}) => {
-  return (
-      <div className="error">
-        <h3>We are sorry... something went wrong</h3>
-        <p>We cannot process your request at this mount</p>
-        <p>ERROR: {error.message}</p>
-      </div>
-  );
-};
-
 export default function App() {
   return (
-      <SiteLayout menu={<p>Menu</p>}>
-        <ErrorBoundary fallback={ErrorScreen}>
-          <>
-            <Callout>Callout</Callout>
-            <h1>Contents</h1>
-            <p>This is the main part of the example layout</p>
-          </>
+      <SiteLayout
+          menu={
+            <ErrorBoundary>
+              <p>Menu</p>
+            </ErrorBoundary>
+          }
+      >
+        <ErrorBoundary>
+          <Callout>Callout</Callout>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <h1>Contents</h1>
+          <p>this is the main part of the example layout</p>
         </ErrorBoundary>
       </SiteLayout>
   );
 }
+
