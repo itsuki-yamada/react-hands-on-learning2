@@ -18,14 +18,14 @@ const ErrorScreen = ({error}) => {
 
 export default function App() {
   return (
-      <ErrorBoundary fallback={ErrorScreen}>
-        <>
-          <Callout>Callout</Callout>
-          <h1>Contents</h1>
-          <p>This is the main part of the example layout</p>
-          <SiteLayout menu={<p>Menu</p>}>
-          </SiteLayout>
-        </>
-      </ErrorBoundary>
+      <SiteLayout menu={<p>Menu</p>}>
+        <ErrorBoundary fallback={ErrorScreen}>
+          <>
+            <Callout>Callout</Callout>
+            <h1>Contents</h1>
+            <p>This is the main part of the example layout</p>
+          </>
+        </ErrorBoundary>
+      </SiteLayout>
   );
 }
