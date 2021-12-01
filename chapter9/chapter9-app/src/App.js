@@ -1,28 +1,15 @@
-import React from 'react';
-import ErrorBoundary from './ErrorBoundary';
-import {SiteLayout} from './SiteLayout';
+import React, {Suspense, useState} from 'react';
+import {ClimbingBoxLoader} from 'react-spinners';
+import Agreement from './Agreement';
 
-const Callout = ({children}) => (
-    <div className="callout">{children}</div>
-);
+const Main = React.lazy(() => import('./Main'));
 
 export default function App() {
+  const [agree, setAgree] = useState(false);
+  if (!agree) return <Agreement onAgree={() => setAgree(true)}/>;
   return (
-      <SiteLayout
-          menu={
-            <ErrorBoundary>
-              <p>Menu</p>
-            </ErrorBoundary>
-          }
-      >
-        <ErrorBoundary>
-          <Callout>Callout</Callout>
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <h1>Contents</h1>
-          <p>this is the main part of the example layout</p>
-        </ErrorBoundary>
-      </SiteLayout>
+      <Suspense fallback={<ClimbingBoxLoader/>}>
+        <Main/>
+      </Suspense>
   );
 }
-
