@@ -1,3 +1,4 @@
 .idea/*
 /chapter5/recipes-app/node_modules/
 dist/*/*.js
+/chapter10/chapter10-app/.idea/
